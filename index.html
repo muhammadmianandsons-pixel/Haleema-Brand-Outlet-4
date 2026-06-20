@@ -3316,9 +3316,9 @@ const DEFAULT_DB = {
 
 // ===== SERVER-BASED PERSISTENT STORAGE =====
 // Data localhost:3030/data par save/load hota hai — kisi bhi browser mein kaam karta hai
-const LS_KEY  = 'noor_boutique_v2';   // fallback only
-const LS_PASS = 'noor_boutique_pass';
-const LS_SHOP = 'noor_boutique_shop';
+const LS_KEY  = 'Haleema _boutique_v2';   // fallback only
+const LS_PASS = 'Haleema _boutique_pass';
+const LS_SHOP = 'Haleema _boutique_shop';
 
 // ===== JSONBIN CLOUD DATABASE =====
 const JSONBIN_KEY = '$2a$10$UsqS.dgaNB36eJCbkP40FOzABK4SuvF5cvIM9S2RgYzcjDnDJjsXO';
@@ -3374,8 +3374,8 @@ function buildSaveData() {
     shopPhone: document.getElementById('shopPhone') ?.value || '',
     passwords,
     db,
-    shopLogo:    localStorage.getItem('noor_logo') || '',
-    shopSign:    localStorage.getItem('noor_signature') || '',
+    shopLogo:    localStorage.getItem('Haleema _logo') || '',
+    shopSign:    localStorage.getItem('Haleema _signature') || '',
     bgImageUrls: (bgImages || []).filter(s => s.startsWith('http'))
   };
 }
@@ -3399,17 +3399,17 @@ function applyLoadedData(parsed) {
   if (parsed.passwords) passwords = { ...passwords, ...parsed.passwords };
   // Shop logo restore
   if (parsed.shopLogo) {
-    localStorage.setItem('noor_logo', parsed.shopLogo);
+    localStorage.setItem('Haleema _logo', parsed.shopLogo);
     applyLogo && applyLogo(parsed.shopLogo);
   }
   // Signature restore
   if (parsed.shopSign) {
-    localStorage.setItem('noor_signature', parsed.shopSign);
+    localStorage.setItem('Haleema _signature', parsed.shopSign);
   }
   // Background images restore (URLs only)
   if (parsed.bgImageUrls && parsed.bgImageUrls.length > 0) {
     bgImages = parsed.bgImageUrls;
-    localStorage.setItem('noor_bg_images', JSON.stringify(bgImages));
+    localStorage.setItem('Haleema _bg_images', JSON.stringify(bgImages));
     rebuildBgStrips && rebuildBgStrips();
     renderBgImgGrid && renderBgImgGrid();
   }
@@ -4920,7 +4920,7 @@ function renderSalesChart() {
 // ===== SETTINGS =====
 
 // ===== SIGNATURE MANAGEMENT =====
-const LS_SIGN = 'noor_signature';
+const LS_SIGN = 'Haleema _signature';
 function handleSignatureUpload(input) {
   const file = input.files[0];
   if(!file) return;
@@ -6570,19 +6570,19 @@ function exportCSV(type) {
     csv += db.products.map(p =>
       `${p.id},"${p.name}","${p.brand}","${p.cat}","${p.size}",${p.price},${p.stock},"${(p.desc||'').replace(/"/g,'""')}"`
     ).join('\n');
-    filename = 'NoorBoutique_Products.csv';
+    filename = 'Haleema Boutique_Products.csv';
   } else if(type === 'orders') {
     csv = 'OrderID,Customer,Product,Qty,Amount,Status,Date\n';
     csv += db.orders.map(o =>
       `${o.id},"${o.custName}","${o.prodName}",${o.qty},${o.amount},"${o.status}","${o.date}"`
     ).join('\n');
-    filename = 'NoorBoutique_Orders.csv';
+    filename = 'Haleema Boutique_Orders.csv';
   } else if(type === 'customers') {
     csv = 'ID,Name,Phone,City,Email,Address\n';
     csv += db.customers.map(c =>
       `${c.id},"${c.name}","${c.phone}","${c.city||''}","${c.email||''}","${(c.address||'').replace(/"/g,'""')}"`
     ).join('\n');
-    filename = 'NoorBoutique_Customers.csv';
+    filename = 'Haleema Boutique_Customers.csv';
   }
   const blob = new Blob(['\uFEFF'+csv], { type: 'text/csv;charset=utf-8;' });
   const url = URL.createObjectURL(blob);
@@ -6630,7 +6630,7 @@ function updateBackupInfo(data) {
 }
 
 // ===== BACKUP LOCATION SYSTEM =====
-const LS_BACKUP_LOC = 'noor_backup_location';
+const LS_BACKUP_LOC = 'Haleema _backup_location';
 let backupLocation = { type: 'downloads', customPath: '', autoFreq: 'daily' };
 
 function loadBackupLocation() {
@@ -6687,7 +6687,7 @@ function setAutoBackup(freq) {
 
 function checkAndInitAutoBackup() {
   const freq = backupLocation.autoFreq;
-  const LS_LAST_AUTO = 'noor_last_auto_backup';
+  const LS_LAST_AUTO = 'Haleema _last_auto_backup';
   const lastBackup = localStorage.getItem(LS_LAST_AUTO);
   const now = new Date();
   let shouldBackup = false;
@@ -6768,7 +6768,7 @@ function triggerBackupExport() {
   const a = document.createElement('a');
   const dateStr = new Date().toLocaleDateString('en-PK').replace(/\//g,'-');
   a.href = url;
-  a.download = `NoorBoutique_Backup_${dateStr}.json`;
+  a.download = `Haleema Boutique_Backup_${dateStr}.json`;
   a.click();
   URL.revokeObjectURL(url);
   addActivity('Auto backup exported');
@@ -6881,7 +6881,7 @@ const COLOR_THEMES = {
   slate:    { rose:'#475569', roseDark:'#334155', roseLight:'#CBD5E1', rosePale:'#F1F5F9', gold:'#64748B', goldLight:'#E2E8F0', cream:'#F8FAFC', sidebar:'#0F172A', sidebarAccent:'rgba(71,85,105,0.28)', name:'Slate Pro', emoji:'🩶' },
 };
 
-const LS_COLOR = 'noor_color_theme';
+const LS_COLOR = 'Haleema _color_theme';
 
 function applyColorTheme(key, el) {
   const t = COLOR_THEMES[key];
@@ -7010,7 +7010,7 @@ function deleteAllOrders() {
 }
 
 // ===== THEME =====
-const LS_THEME = 'noor_theme';
+const LS_THEME = 'Haleema _theme';
 function setTheme(t) {
   localStorage.setItem(LS_THEME, t);
   document.body.classList.toggle('theme-dark', t === 'dark');
@@ -7023,7 +7023,7 @@ function loadTheme() {
 }
 
 // ===== LOGO =====
-const LS_LOGO = 'noor_logo';
+const LS_LOGO = 'Haleema _logo';
 function handleLogoUpload(input) {
   const file = input.files[0];
   if (!file) return;
@@ -7075,7 +7075,7 @@ function loadLogo() {
 }
 
 // ===== TAGLINE =====
-const LS_TAGLINE = 'noor_tagline';
+const LS_TAGLINE = 'Haleema _tagline';
 function loadTagline() {
   const t = localStorage.getItem(LS_TAGLINE);
   if (t) {
@@ -7129,7 +7129,7 @@ function initSettingsPage() {
 const _origShowPage = showPage;
 
 
-const LS_BG_IMGS = 'noor_bg_images';
+const LS_BG_IMGS = 'Haleema _bg_images';
 
 const DEFAULT_BG_IMGS = [
   'https://images.unsplash.com/photo-1594938298603-c8148c4b4545?w=500&q=80',
@@ -7353,7 +7353,7 @@ window.onload = function() {
     container.appendChild(btn);
   });
   // Mark active
-  const saved = localStorage.getItem('noor_color_theme');
+  const saved = localStorage.getItem('Haleema _color_theme');
   if(saved){ try { const k = JSON.parse(saved).key; const ab = document.querySelector('.quick-theme-btn[data-theme="'+k+'"]'); if(ab) ab.classList.add('qt-active'); } catch(e){} }
   else { const first = document.querySelector('.quick-theme-btn'); if(first) first.classList.add('qt-active'); }
 })();

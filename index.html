@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Noor Boutique — Bridal & Designer Suits v4</title>
+<title>Haleema Branded Outlet — Bridal & Designer Suits v4</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
@@ -1750,7 +1750,7 @@ body.theme-dark .color-preset-btn { background: #1E1218; }
         <img id="loginLogoImg" src="" alt="" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:20px">
         <i class="ti ti-diamond" id="loginIconFallback"></i>
       </div>
-      <h1 id="loginTitle">Noor Boutique</h1>
+      <h1 id="loginTitle">Haleema Branded Outlet</h1>
       <p id="loginTagline">Bridal & Designer Suits</p>
     </div>
 
@@ -1794,7 +1794,7 @@ body.theme-dark .color-preset-btn { background: #1E1218; }
           <i class="ti ti-diamond" id="sidebarIconFallback"></i>
         </div>
         <div>
-          <div class="brand-name">Noor Boutique</div>
+          <div class="brand-name">Haleema Branded Outlet</div>
           <div class="brand-tagline">Management System</div>
         </div>
       </div>
@@ -2348,7 +2348,7 @@ body.theme-dark .color-preset-btn { background: #1E1218; }
           <div>
             <div class="settings-section">
               <div class="settings-title"><i class="ti ti-building-store"></i> Shop Settings</div>
-              <div class="form-group"><label>Shop ka Naam</label><input type="text" id="shopName" value="Noor Boutique" /></div>
+              <div class="form-group"><label>Shop ka Naam</label><input type="text" id="shopName" value="Haleema Branded Outlet" /></div>
               <div class="form-row">
                 <div class="form-group"><label>City</label><input type="text" id="shopCity" value="Karachi" /></div>
                 <div class="form-group"><label>Phone</label><input type="text" id="shopPhone" placeholder="03xxxxxxxxx" /></div>
@@ -2571,7 +2571,7 @@ body.theme-dark .color-preset-btn { background: #1E1218; }
                 <div id="customPathWrap" style="display:none;margin-top:8px">
                   <div style="font-size:11px;color:var(--ink-soft);margin-bottom:6px">Custom folder ka naam likhein (ya Browse button se select karein):</div>
                   <div style="display:flex;gap:8px;align-items:center">
-                    <input type="text" id="customBackupPath" placeholder="e.g. D:/Noor Boutique/Backups" style="flex:1;padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--ink);background:white" />
+                    <input type="text" id="customBackupPath" placeholder="e.g. D:/Haleema Branded Outlet/Backups" style="flex:1;padding:9px 12px;border:1px solid var(--border);border-radius:8px;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--ink);background:white" />
                     <button class="btn btn-sm" onclick="browseBackupFolder()" title="Folder Browse"><i class="ti ti-folder-open"></i></button>
                   </div>
                   <input type="file" id="folderBrowserInput" webkitdirectory style="display:none" onchange="onFolderSelected(this)" />
@@ -3369,7 +3369,7 @@ function buildSaveData() {
   return {
     version:   '2.0',
     savedAt:   new Date().toISOString(),
-    shopName:  document.getElementById('shopName')  ?.value || 'Noor Boutique',
+    shopName:  document.getElementById('shopName')  ?.value || 'Haleema Branded Outlet',
     shopCity:  document.getElementById('shopCity')  ?.value || '',
     shopPhone: document.getElementById('shopPhone') ?.value || '',
     passwords,
@@ -3414,7 +3414,7 @@ function applyLoadedData(parsed) {
     renderBgImgGrid && renderBgImgGrid();
   }
   window._savedShop = {
-    shopName:  parsed.shopName  || 'Noor Boutique',
+    shopName:  parsed.shopName  || 'Haleema Branded Outlet',
     shopCity:  parsed.shopCity  || '',
     shopPhone: parsed.shopPhone || ''
   };
@@ -5589,7 +5589,7 @@ function saveEditInvoice() {
 }
 
 function buildInvoiceHTML(inv) {
-  const shopName = document.getElementById('shopName')?.value || 'Noor Boutique';
+  const shopName = document.getElementById('shopName')?.value || 'Haleema Branded Outlet';
   const shopCity = document.getElementById('shopCity')?.value || '';
   const shopPhone = document.getElementById('shopPhone')?.value || '';
   const signSrc = getSignatureSrc();
@@ -6758,7 +6758,7 @@ function triggerBackupExport() {
   const backupData = {
     version: '2.0',
     exportedAt: new Date().toISOString(),
-    shopName: document.getElementById('shopName')?.value || 'Noor Boutique',
+    shopName: document.getElementById('shopName')?.value || 'Haleema Branded Outlet',
     passwords,
     db
   };
